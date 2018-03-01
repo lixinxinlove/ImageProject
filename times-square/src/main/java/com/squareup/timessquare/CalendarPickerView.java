@@ -917,8 +917,7 @@ public class CalendarPickerView extends ListView {
       if (monthsReverseOrder) {
         position = months.size() - position - 1;
       }
-      monthView.init(months.get(position), cells.getValueAtIndex(position), displayOnly,
-          titleTypeface, dateTypeface);
+      monthView.init(months.get(position), cells.getValueAtIndex(position), displayOnly, titleTypeface, dateTypeface);
       return monthView;
     }
   }

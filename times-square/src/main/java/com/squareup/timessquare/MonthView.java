@@ -45,10 +45,12 @@ public class MonthView extends LinearLayout {
 
     // Set the views
     view.title = new TextView(new ContextThemeWrapper(view.getContext(), titleTextStyle));
+    view.title.setTextSize(14f);
     view.grid = (CalendarGridView) view.findViewById(R.id.calendar_grid);
     view.dayNamesHeaderRowView = view.findViewById(R.id.day_names_header_row);
 
     // Add the month title as the first child of MonthView
+    //view.title.setVisibility(GONE); // TODO: 2018/3/1 lee
     view.addView(view.title, 0);
 
     view.setDayViewAdapter(adapter);
@@ -81,6 +83,7 @@ public class MonthView extends LinearLayout {
 
     view.listener = listener;
     view.decorators = decorators;
+
     return view;
   }
 
