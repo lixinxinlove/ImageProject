@@ -51,20 +51,16 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
                 ARouter.getInstance().build("/activity/ARouterActivity").navigation();
                 break;
             case 1:
-                ARouter.getInstance().build("/activity/ARouter1Activity")
-                        .withLong("key1", 666L)
-                        .withInt("key2",12)
-                        .withString("key3", "leeee")
-                        .navigation();
+                ARouter.getInstance().build("/activity/ARouter1Activity").withString("key3", "leeee").navigation();
                 break;
             case 2:
                 ARouter.getInstance().build("/activity/TimesSquareActivity").navigation();
                 break;
             case 3:
-
+                ARouter.getInstance().build("/activity/ThreadExecutorActivity").navigation();
                 break;
             case 4:
-
+                ARouter.getInstance().build("/activity/DialogFragmentActivity").navigation();
                 break;
             case 5:
 
