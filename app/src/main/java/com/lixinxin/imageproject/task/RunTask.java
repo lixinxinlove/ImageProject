@@ -9,7 +9,7 @@ import android.util.Log;
 public class RunTask implements Runnable {
     @Override
     public void run() {
-        Log.e("lee", "任务");
+        Log.e("lee", "任务----" + Thread.currentThread().getName());
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {

@@ -7,13 +7,15 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.lixinxin.imageproject.R;
 import com.lixinxin.imageproject.task.RunTask;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 @Route(path = "/activity/ThreadExecutorActivity")
 public class ThreadExecutorActivity extends AppCompatActivity {
 
-    private ExecutorService executorService;
+    private ThreadPoolExecutor executorService;
     private RunTask runTask;
 
     @Override
@@ -21,9 +23,11 @@ public class ThreadExecutorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thread_executor);
         runTask = new RunTask();
-        executorService = Executors.newSingleThreadExecutor();
+        createThreadPool();
+        //  executorService = Executors.newSingleThreadExecutor();
         for (int i = 0; i < 5; i++) {
             executorService.execute(runTask);
+            //executorService.remove(runTask);
         }
     }
 
@@ -33,9 +37,22 @@ public class ThreadExecutorActivity extends AppCompatActivity {
         if (executorService != null) {
             if (!executorService.isShutdown()) {
                 executorService.shutdown();
+
             }
         }
     }
+
+
+    private void createThreadPool() {
+        int NUMBER_OF_CORES = Runtime.getRuntime().availableProcessors();
+        NUMBER_OF_CORES = 1;
+        int KEEP_ALIVE_TIME = 1;
+        TimeUnit KEEP_ALIVE_TIME_UNIT = TimeUnit.SECONDS;
+        BlockingQueue<Runnable> taskQueue = new LinkedBlockingQueue<>();
+
+        executorService = new ThreadPoolExecutor(2, 3, 1, TimeUnit.SECONDS, taskQueue);
+    }
+
 
     @Override
     protected void onDestroy() {
