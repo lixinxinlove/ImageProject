@@ -63,11 +63,10 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
                 ARouter.getInstance().build("/activity/DialogFragmentActivity").navigation();
                 break;
             case 5:
-
+                ARouter.getInstance().build("/activity/ScrollViewActivity").navigation();
                 break;
             default:
                 break;
         }
-
     }
 }
