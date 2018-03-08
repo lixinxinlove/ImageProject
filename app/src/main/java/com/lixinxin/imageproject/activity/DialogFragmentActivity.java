@@ -19,7 +19,7 @@ public class DialogFragmentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dialog_fragment);
-        btn= (Button) findViewById(R.id.btn);
+        btn = (Button) findViewById(R.id.btn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -28,9 +28,11 @@ public class DialogFragmentActivity extends AppCompatActivity {
         });
     }
 
-
     public void showPromptDialog(String text) {
-        ImageDialogFragment dialogFragment=new ImageDialogFragment();
-        dialogFragment.show(getSupportFragmentManager(),text);
+        ImageDialogFragment dialogFragment = new ImageDialogFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("name", "李鑫鑫");
+        dialogFragment.setArguments(bundle);
+        dialogFragment.show(getSupportFragmentManager(), text);
     }
 }

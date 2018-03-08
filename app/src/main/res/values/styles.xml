@@ -13,7 +13,7 @@
     <style name="Base_AlertDialog" parent="Base.Theme.AppCompat.Light.Dialog">
 
         <!--不设置在6.0以上会出现，宽度不充满屏幕的情况-->
-        <item name="windowMinWidthMinor">90%</item>
+        <item name="windowMinWidthMinor">100%</item>
 
         <!-- 取消标题栏，如果在代码中settitle的话会无效 -->
         <item name="android:windowNoTitle">true</item>
