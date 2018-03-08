@@ -5,23 +5,23 @@ import android.util.AttributeSet;
 import android.widget.ScrollView;
 import android.widget.Scroller;
 
-public class ChimelongScrollView extends ScrollView {
+public class LeeScrollView extends ScrollView {
 
 	ScrollViewListener scrollListener;
 
 	private Scroller mScroller;
 
-	public ChimelongScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
+	public LeeScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		mScroller = new Scroller(context);
 	}
 
-	public ChimelongScrollView(Context context, AttributeSet attrs) {
+	public LeeScrollView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		mScroller = new Scroller(context);
 	}
 
-	public ChimelongScrollView(Context context) {
+	public LeeScrollView(Context context) {
 		super(context);
 		mScroller = new Scroller(context);
 	}

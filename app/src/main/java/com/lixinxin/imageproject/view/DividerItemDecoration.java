@@ -93,7 +93,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
             // ItemView的左边界 = RecyclerView 的左边界 = paddingLeft距离 后的位置
             final int left = parent.getWidth() / 2 - mIcon.getWidth() / 2;
             // ItemView的上边界
-            float top = view.getTop() + 40;
+            float top = view.getTop();
 
             // 第1个ItemView不绘制
 //            if ( index == 0 ) {

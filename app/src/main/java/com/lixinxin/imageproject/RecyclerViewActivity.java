@@ -37,9 +37,13 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
 
     private void initData() {
         mData = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            mData.add(String.format("leeee%d", i));
-        }
+        mData.add("0-路由跳转");
+        mData.add("1-路由跳转传值");
+        mData.add("2-日历");
+        mData.add("3-线程池");
+        mData.add("4-DialogFragment");
+        mData.add("5-ScrollView监听滑动");
+
         adapter = new ListAdapter(mData);
         adapter.setOnItemClickListener(this);
     }
