@@ -16,17 +16,23 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-import android.widget.TextView;
-
-import com.lixinxin.imageproject.R;
 
 /**
- * Created by android on 2018/3/2.
+ * Created by android on 2018/3/8.
  */
 
-public class ImageDialogFragment extends DialogFragment {
+public abstract class BaseDialogFragment extends DialogFragment {
 
     private String name = "";
+
+    protected abstract int layoutId();
+
+    protected abstract void findView();
+
+    protected abstract void setListener();
+
+    protected abstract void _onCreateView();
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,12 +51,11 @@ public class ImageDialogFragment extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // View view = inflater.inflate(R.layout.fragment_prompt, container);
-        Log.e("lxx", "onCreateView");
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
-        View view = inflater.inflate(R.layout.fragment_prompt, null);
-        TextView textView = view.findViewById(R.id.tv_name);
-        textView.setText(name);
+        View view = inflater.inflate(layoutId(), null);
+        findView();
+        setListener();
+        _onCreateView();
         slideToUp(view);
         return view;
     }
@@ -61,15 +66,14 @@ public class ImageDialogFragment extends DialogFragment {
         Log.e("lxx", "onStart");
         Window window = getDialog().getWindow();
         WindowManager.LayoutParams params = window.getAttributes();
-        params.gravity = Gravity.TOP;
+        params.gravity = Gravity.BOTTOM;
         params.width = WindowManager.LayoutParams.MATCH_PARENT;
         window.setAttributes(params);
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 
 
-
-    public static void slideToUp(View view){
+    public static void slideToUp(View view) {
         Animation slide = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
                 Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
                 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
@@ -99,7 +103,6 @@ public class ImageDialogFragment extends DialogFragment {
     }
 
 
-
     @Override
     public void onPause() {
         super.onPause();
@@ -123,8 +126,5 @@ public class ImageDialogFragment extends DialogFragment {
         super.onDestroy();
         Log.e("lxx", "onDestroy");
     }
-
-
-
 
 }
