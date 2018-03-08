@@ -5,6 +5,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.lixinxin.imageproject.R;
 
 import java.io.File;
 import java.text.DecimalFormat;
@@ -17,14 +18,14 @@ public class GlideUtils {
 
     RequestOptions options = new RequestOptions().override(200, 100);  //设置图片大小
 
-
     public static void load(Context context,
                             String url,
                             ImageView imageView,
                             RequestOptions options) {
+
         Glide.with(context)
                 .load(url)
-                .apply(options)
+                .apply(options.placeholder(R.mipmap.ic_launcher))  //添加默认站位图
                 .into(imageView);
     }
 
