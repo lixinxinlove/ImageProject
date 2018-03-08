@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.lixinxin.imageproject.R;
-import com.lixinxin.imageproject.dialog.ImageDialogFragment;
+import com.lixinxin.imageproject.dialog.LeeDialogFragment;
 
 @Route(path = "/activity/DialogFragmentActivity")
 public class DialogFragmentActivity extends AppCompatActivity {
@@ -29,7 +29,7 @@ public class DialogFragmentActivity extends AppCompatActivity {
     }
 
     public void showPromptDialog(String text) {
-        ImageDialogFragment dialogFragment = new ImageDialogFragment();
+        LeeDialogFragment dialogFragment = new LeeDialogFragment();
         Bundle bundle = new Bundle();
         bundle.putString("name", "李鑫鑫");
         dialogFragment.setArguments(bundle);

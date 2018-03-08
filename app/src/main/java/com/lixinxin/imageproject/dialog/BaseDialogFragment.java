@@ -23,7 +23,7 @@ import android.view.animation.TranslateAnimation;
 
 public abstract class BaseDialogFragment extends DialogFragment {
 
-    private String name = "";
+    protected View rootView;
 
     protected abstract int layoutId();
 
@@ -37,7 +37,6 @@ public abstract class BaseDialogFragment extends DialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        name = getArguments().getString("name");
         Log.e("lxx", "onCreate");
     }
 
@@ -52,12 +51,12 @@ public abstract class BaseDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
-        View view = inflater.inflate(layoutId(), null);
+        rootView = inflater.inflate(layoutId(), null);
         findView();
         setListener();
         _onCreateView();
-        slideToUp(view);
-        return view;
+        slideToUp(rootView);
+        return rootView;
     }
 
     @Override
