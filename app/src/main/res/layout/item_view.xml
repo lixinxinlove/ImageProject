@@ -17,11 +17,13 @@
             android:layout_marginTop="10dp"
             android:text="llllll" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="llllll" />
 
+        <ImageView
+            android:transitionName="imageView"
+            android:id="@+id/iv"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </LinearLayout>

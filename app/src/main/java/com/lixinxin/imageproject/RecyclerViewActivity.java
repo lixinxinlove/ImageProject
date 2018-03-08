@@ -1,6 +1,9 @@
 package com.lixinxin.imageproject;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +11,7 @@ import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.lixinxin.imageproject.activity.TransitionsActivity;
 import com.lixinxin.imageproject.adapter.ListAdapter;
 import com.lixinxin.imageproject.view.DividerItemDecoration;
 
@@ -43,6 +47,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
         mData.add("3-线程池");
         mData.add("4-DialogFragment");
         mData.add("5-ScrollView监听滑动");
+        mData.add("6-转场动画");
 
         adapter = new ListAdapter(mData);
         adapter.setOnItemClickListener(this);
@@ -69,8 +74,35 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
             case 5:
                 ARouter.getInstance().build("/activity/ScrollViewActivity").navigation();
                 break;
+            case 6:
+                // startOptionsActivity(this, view.findViewById(R.id.iv));
+                // ARouter.getInstance().build("/activity/ScrollViewActivity").navigation();
+
+                startOptionsActivity(this);
+
+                break;
             default:
                 break;
         }
     }
+
+
+    private static final String OPTION_IMAGE = "imageView";
+
+    //
+    public static void startOptionsActivity(AppCompatActivity activity, View transitionView) {
+        Intent intent = new Intent(activity, TransitionsActivity.class);
+        // 这里指定了共享的视图元素
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, transitionView, OPTION_IMAGE);
+        ActivityCompat.startActivity(activity, intent, options.toBundle());
+    }
+
+    public static void startOptionsActivity(AppCompatActivity activity) {
+        Intent intent = new Intent(activity, TransitionsActivity.class);
+        ActivityCompat.startActivity(activity, intent, ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
+
+
+    }
+
+
 }

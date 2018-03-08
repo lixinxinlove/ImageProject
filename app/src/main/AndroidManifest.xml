@@ -27,7 +27,8 @@
         <activity android:name=".activity.TimesSquareActivity" />
         <activity android:name=".activity.ThreadExecutorActivity" />
         <activity android:name=".activity.DialogFragmentActivity" />
-        <activity android:name=".activity.ScrollViewActivity"></activity>
+        <activity android:name=".activity.ScrollViewActivity" />
+        <activity android:name=".activity.TransitionsActivity"></activity>
     </application>
 
 </manifest>

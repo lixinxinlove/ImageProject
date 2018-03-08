@@ -6,6 +6,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
 
@@ -35,7 +36,6 @@
         <!-- 按钮字体颜色,全部一起改，单个改需要在Java代码中修改 -->
         <!--<item name="colorAccent">@color/app_main_color</item>-->
     </style>
-
 
 
 </resources>
