@@ -11,6 +11,8 @@ import com.lixinxin.imageproject.R;
 import com.lixinxin.imageproject.app.App;
 import com.lixinxin.imageproject.db.entity.User;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -19,6 +21,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+
+import static com.lixinxin.imageproject.app.App.userDao;
 
 @Route(path = "/activity/RoomActivity")
 public class RoomActivity extends AppCompatActivity {
@@ -44,6 +48,40 @@ public class RoomActivity extends AppCompatActivity {
 
     public void find(View view) {
 
+        Observable.create(new ObservableOnSubscribe<User>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<User> emitter) throws Exception {
+                List<User> users = userDao.query();
+                if (users != null) {
+                    emitter.onNext(users.get(0));
+                } else {
+                    emitter.onError(new Throwable(""));
+                }
+                emitter.onComplete();
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<User>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(@NonNull User user) {
+                        textView.setText(user.toString() + "-----find");
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        textView.setText("报错");
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Toast.makeText(RoomActivity.this, "find", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
     }
 
@@ -52,8 +90,13 @@ public class RoomActivity extends AppCompatActivity {
         Observable.create(new ObservableOnSubscribe<User>() {
             @Override
             public void subscribe(@NonNull ObservableEmitter<User> emitter) throws Exception {
-                App.userDao.insertUser(user);
-                emitter.onNext(user);
+                long[] i = App.userDao.insertUser(user);
+                if (i.length > 0) {
+                    emitter.onNext(user);
+                } else {
+                    emitter.onError(new Throwable(""));
+                }
+
                 emitter.onComplete();
             }
         })
@@ -82,10 +125,82 @@ public class RoomActivity extends AppCompatActivity {
     }
 
     public void update(View view) {
+
+        Observable.create(new ObservableOnSubscribe<User>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<User> emitter) throws Exception {
+                user.setAddress(user.getAddress() + "1607");
+                int i = App.userDao.updateUser(user);
+                if (i > 0) {
+                    emitter.onNext(user);
+                } else {
+                    emitter.onError(new Throwable(""));
+                }
+
+                emitter.onComplete();
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<User>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(@NonNull User user) {
+                        textView.setText(user.toString());
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        textView.setText("报错");
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Toast.makeText(RoomActivity.this, "update", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
     }
 
     public void delete(View view) {
+
+        Observable.create(new ObservableOnSubscribe<User>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<User> emitter) throws Exception {
+                int i = App.userDao.deleteUser(user);
+                if (i > 0) {
+                    emitter.onNext(user);
+                } else {
+                    emitter.onError(new Throwable(""));
+                }
+                emitter.onComplete();
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<User>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(@NonNull User user) {
+                        textView.setText("删除成功");
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        textView.setText("报错");
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Toast.makeText(RoomActivity.this, "delete", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
-
-
 }

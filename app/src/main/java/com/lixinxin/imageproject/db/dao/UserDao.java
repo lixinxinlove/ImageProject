@@ -9,6 +9,8 @@ import android.arch.persistence.room.Update;
 
 import com.lixinxin.imageproject.db.entity.User;
 
+import java.util.List;
+
 /**
  * Created by android on 2018/3/9.
  */
@@ -17,7 +19,7 @@ import com.lixinxin.imageproject.db.entity.User;
 public interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertUser(User... users);
+    long[] insertUser(User... users);
 
     @Delete
     int deleteUser(User... users);
@@ -26,16 +28,16 @@ public interface UserDao {
     int updateUser(User... users);
 
     @Query("SELECT * FROM user")
-    User[] query();
+    List<User> query();
 
     @Query("SELECT * FROM user WHERE userId = :userId")
-    User[] queryUserId(int userId);
+    List<User> queryUserId(int userId);
 
     @Query("SELECT * FROM user WHERE name LIKE :name")
-    User[] queryName(String name);
+    List<User> queryName(String name);
 
     @Query("SELECT * FROM user WHERE address LIKE :address")
-    User[] queryAddress(String address);
+    List<User> queryAddress(String address);
 
 
 }
