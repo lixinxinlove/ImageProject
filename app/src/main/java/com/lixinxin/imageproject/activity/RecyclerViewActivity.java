@@ -1,4 +1,4 @@
-package com.lixinxin.imageproject;
+package com.lixinxin.imageproject.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.lixinxin.imageproject.activity.TransitionsActivity;
+import com.lixinxin.imageproject.R;
 import com.lixinxin.imageproject.adapter.ListAdapter;
 import com.lixinxin.imageproject.view.DividerItemDecoration;
 
@@ -48,6 +48,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
         mData.add("4-DialogFragment");
         mData.add("5-ScrollView监听滑动");
         mData.add("6-转场动画");
+        mData.add("7-ROOM");
 
         adapter = new ListAdapter(mData);
         adapter.setOnItemClickListener(this);
@@ -77,15 +78,15 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
             case 6:
                 // startOptionsActivity(this, view.findViewById(R.id.iv));
                 // ARouter.getInstance().build("/activity/ScrollViewActivity").navigation();
-
                 startOptionsActivity(this);
-
+                break;
+            case 7:
+                ARouter.getInstance().build("/activity/RoomActivity").navigation();
                 break;
             default:
                 break;
         }
     }
-
 
     private static final String OPTION_IMAGE = "imageView";
 

@@ -68,8 +68,7 @@ public class ImageDialogFragment extends DialogFragment {
     }
 
 
-
-    public static void slideToUp(View view){
+    public static void slideToUp(View view) {
         Animation slide = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
                 Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
                 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
@@ -99,7 +98,6 @@ public class ImageDialogFragment extends DialogFragment {
     }
 
 
-
     @Override
     public void onPause() {
         super.onPause();
@@ -123,8 +121,4 @@ public class ImageDialogFragment extends DialogFragment {
         super.onDestroy();
         Log.e("lxx", "onDestroy");
     }
-
-
-
-
 }

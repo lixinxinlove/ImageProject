@@ -5,7 +5,7 @@ android {
     buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.lixinxin.imageproject"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -32,6 +32,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile project(':times-square')
+    //room
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -43,7 +44,11 @@ dependencies {
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     compile 'com.facebook.stetho:stetho:1.5.0'
     compile 'com.alibaba:arouter-api:1.3.1'
+    compile 'android.arch.persistence.room:runtime:1.0.0'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    annotationProcessor 'android.arch.persistence.room:compiler:1.0.0'
+    //数据库调试
+    compile 'com.facebook.stetho:stetho:1.5.0'
 }

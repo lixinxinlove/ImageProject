@@ -1,4 +1,4 @@
-package com.lixinxin.imageproject;
+package com.lixinxin.imageproject.activity;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.lixinxin.imageproject.R;
 import com.lixinxin.imageproject.utils.GlideUtils;
 
 import java.io.File;
