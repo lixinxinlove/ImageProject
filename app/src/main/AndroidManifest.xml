@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lixinxin.imageproject">
 
+    <!-- 声明所有需要的权限（包括普通权限和危险权限） -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -14,6 +16,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.lixinxin.imageprojec"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+
+        </provider>
+
+
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.RecyclerViewActivity">
             <intent-filter>
@@ -29,7 +45,8 @@
         <activity android:name=".activity.DialogFragmentActivity" />
         <activity android:name=".activity.ScrollViewActivity" />
         <activity android:name=".activity.TransitionsActivity" />
-        <activity android:name=".activity.RoomActivity"></activity>
+        <activity android:name=".activity.RoomActivity" />
+        <activity android:name=".activity.PermissionActivity" />
     </application>
 
 </manifest>

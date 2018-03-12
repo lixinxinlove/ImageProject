@@ -49,6 +49,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
         mData.add("5-ScrollView监听滑动");
         mData.add("6-转场动画");
         mData.add("7-ROOM");
+        mData.add("8-Permission");
 
         adapter = new ListAdapter(mData);
         adapter.setOnItemClickListener(this);
@@ -82,6 +83,9 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
                 break;
             case 7:
                 ARouter.getInstance().build("/activity/RoomActivity").navigation();
+                break;
+            case 8:
+                ARouter.getInstance().build("/activity/PermissionActivity").navigation();
                 break;
             default:
                 break;

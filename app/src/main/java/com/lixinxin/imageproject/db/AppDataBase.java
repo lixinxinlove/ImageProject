@@ -9,7 +9,7 @@ import com.lixinxin.imageproject.db.entity.User;
 /**
  * Created by android on 2018/3/9.
  */
-@Database(entities = {User.class}, version = 1)
+@Database(entities = {User.class}, version = 1,exportSchema = false)
 public abstract class AppDataBase extends RoomDatabase {
     public abstract UserDao userDao();
 }
