@@ -15,25 +15,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="save"
-        android:text="保存" />
+        android:text="@string/save" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="find"
-        android:text="查找" />
+        android:text="@string/find" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="update"
-        android:text="更新" />
+        android:text="@string/update" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="delete"
-        android:text="删除" />
+        android:text="@string/delete" />
 
 
 </LinearLayout>

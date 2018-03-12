@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ImageProject</string>
+    <string name="save">保存</string>
+    <string name="find">查找</string>
+    <string name="update">更新</string>
+    <string name="delete">删除</string>
 </resources>
