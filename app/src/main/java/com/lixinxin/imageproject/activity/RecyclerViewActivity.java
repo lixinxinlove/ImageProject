@@ -104,8 +104,6 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
     public static void startOptionsActivity(AppCompatActivity activity) {
         Intent intent = new Intent(activity, TransitionsActivity.class);
         ActivityCompat.startActivity(activity, intent, ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
-
-
     }
 
 

@@ -39,7 +39,7 @@ public class MyDatePickerDecorator implements CalendarCellDecorator {
 
         if (cellView.isSelectable()) {
             if (cellView.isSelected()) {
-                cellView.setBackground(context.getDrawable(R.mipmap.ic_launcher_round));
+                cellView.setBackground(context.getResources().getDrawable(R.mipmap.ic_launcher_round));
             } else {
                 cellView.setBackground(null);
             }
