@@ -36,6 +36,7 @@ public class RoomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room);
         textView = (TextView) findViewById(R.id.tv);
+
         user = new User();
         user.setUserId(1);
         user.setName("李晓娜");
@@ -44,6 +45,7 @@ public class RoomActivity extends AppCompatActivity {
         user.setPassword("10086");
         user.setPhone("17090408888");
         user.setAddress("北京三里屯soho");
+        user.setLike("吃");
     }
 
 
