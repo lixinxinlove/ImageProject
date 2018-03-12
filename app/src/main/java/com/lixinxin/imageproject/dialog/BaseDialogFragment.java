@@ -33,6 +33,7 @@ public abstract class BaseDialogFragment extends DialogFragment {
 
     protected abstract void _onCreateView();
 
+    protected abstract Dialog _onCreateDialog();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,12 +45,17 @@ public abstract class BaseDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Log.e("lxx", "onCreateDialog");
+
+        if (_onCreateDialog() != null) {
+            return _onCreateDialog();
+        }
         return super.onCreateDialog(savedInstanceState);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.e("lxx", "onCreateView");
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
         rootView = inflater.inflate(layoutId(), null);
         findView();

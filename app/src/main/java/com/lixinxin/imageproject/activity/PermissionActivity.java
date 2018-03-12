@@ -24,6 +24,8 @@ import com.lixinxin.imageproject.utils.FileUtils;
 @Route(path = "/activity/PermissionActivity")
 public class PermissionActivity extends AppCompatActivity implements View.OnClickListener {
 
+    //http://download.evente.cn/sporte/SporteApp_v_1.0.6.apk
+
     private static final int MY_PERMISSION_REQUEST_CODE = 10000;
 
     private Button btnPhone;
