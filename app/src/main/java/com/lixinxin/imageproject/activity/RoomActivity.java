@@ -20,6 +20,7 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 import static com.lixinxin.imageproject.app.App.userDao;
@@ -55,34 +56,26 @@ public class RoomActivity extends AppCompatActivity {
                 if (users != null) {
                     emitter.onNext(users.get(0));
                 } else {
-                    emitter.onError(new Throwable(""));
+                    emitter.onNext(null);
                 }
                 emitter.onComplete();
             }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<User>() {
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<User>() {
                     @Override
-                    public void onSubscribe(@NonNull Disposable d) {
+                    public void accept(User user) throws Exception {
+                        if (user != null) {
+                            textView.setText(user.toString() + "-----find");
+                        } else {
+                            textView.setText("没有数据");
+                        }
                     }
-
+                }, new Consumer<Throwable>() {
                     @Override
-                    public void onNext(@NonNull User user) {
-                        textView.setText(user.toString() + "-----find");
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        textView.setText("报错");
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        Toast.makeText(RoomActivity.this, "find", Toast.LENGTH_SHORT).show();
+                    public void accept(Throwable throwable) throws Exception {
+                        textView.setText("throwable");
                     }
                 });
-
     }
 
     public void save(View view) {

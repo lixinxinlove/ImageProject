@@ -1,13 +1,15 @@
 package com.lixinxin.imageproject.db.entity;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
 /**
  * Created by android on 2018/3/9.
  */
 
-@Entity(tableName = "user")
+@Entity(tableName = "user", indices = {@Index(value = {"userId"}, unique = true)})
 public class User {
 
     @PrimaryKey/*(autoGenerate = true)*/
@@ -18,6 +20,8 @@ public class User {
     private String address;
     private boolean sex;
     private String phone;
+    @Ignore  //忽略
+    private String like;
 
     public long getUserId() {
         return userId;
@@ -76,6 +80,14 @@ public class User {
     }
 
 
+    public String getLike() {
+        return like;
+    }
+
+    public void setLike(String like) {
+        this.like = like;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -86,6 +98,7 @@ public class User {
                 ", address='" + address + '\'' +
                 ", sex=" + sex +
                 ", phone='" + phone + '\'' +
+                ", like='" + like + '\'' +
                 '}';
     }
 }
