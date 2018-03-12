@@ -50,7 +50,6 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
         mData.add("6-转场动画");
         mData.add("7-ROOM");
         mData.add("8-Permission");
-
         adapter = new ListAdapter(mData);
         adapter.setOnItemClickListener(this);
     }
