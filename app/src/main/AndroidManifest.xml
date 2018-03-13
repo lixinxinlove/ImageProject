@@ -16,19 +16,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.lixinxin.imageprojec"
             android:exported="false"
             android:grantUriPermissions="true">
-
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-
         </provider>
-
 
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.RecyclerViewActivity">
@@ -47,6 +43,7 @@
         <activity android:name=".activity.TransitionsActivity" />
         <activity android:name=".activity.RoomActivity" />
         <activity android:name=".activity.PermissionActivity" />
+        <activity android:name=".activity.SqliteActivity"></activity>
     </application>
 
 </manifest>

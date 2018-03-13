@@ -50,6 +50,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
         mData.add("6-转场动画");
         mData.add("7-ROOM");
         mData.add("8-Permission");
+        mData.add("9-SQLiteCope");
         adapter = new ListAdapter(mData);
         adapter.setOnItemClickListener(this);
     }
@@ -85,6 +86,9 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
                 break;
             case 8:
                 ARouter.getInstance().build("/activity/PermissionActivity").navigation();
+                break;
+            case 9:
+                ARouter.getInstance().build("/activity/SqliteActivity").navigation();
                 break;
             default:
                 break;

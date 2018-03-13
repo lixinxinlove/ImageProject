@@ -2,6 +2,7 @@ package com.lixinxin.imageproject.app;
 
 import android.app.Application;
 import android.arch.persistence.room.Room;
+import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.facebook.stetho.Stetho;
@@ -14,6 +15,8 @@ import com.lixinxin.imageproject.db.dao.UserDao;
 
 public class App extends Application {
 
+    public static Context mContext;
+
     public static AppDataBase db;
 
     public static UserDao userDao;
@@ -21,6 +24,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = this;
         //初始化数据库调试
         Stetho.initializeWithDefaults(this);
         initARouter();
