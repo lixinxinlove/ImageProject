@@ -60,8 +60,16 @@ public class DataApiForOkHttp {
         mcall.enqueue(new EventRequestCallbackImpl(callback));
     }
 
+    public void post(Map<String,String> map, String url, EventRequestCallback callback, String header) {
 
-    public void post2(FormBody body, String url, EventRequestCallback callback, String header) {
+        FormBody.Builder builder = new FormBody.Builder();
+        if (map != null) {
+            for (String key : map.keySet()) {
+                builder.add(key, map.get(key));
+            }
+        }
+        FormBody body = builder.build();
+
         Request.Builder requestBuilder = new Request.Builder().url(url);
         requestBuilder.addHeader("Authorization", header).post(body).build();
         Request request = requestBuilder.post(body).build();
@@ -117,6 +125,7 @@ public class DataApiForOkHttp {
      * @param header
      */
     public void getAsync2(String url, EventRequestCallback callback, String header) {
+
         Request.Builder requestBuilder = new Request.Builder().url(url);
         requestBuilder.method(GET_METHOD, null);
         requestBuilder.addHeader("Authorization", header);

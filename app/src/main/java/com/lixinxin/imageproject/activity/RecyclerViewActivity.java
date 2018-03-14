@@ -51,6 +51,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
         mData.add("7-ROOM");
         mData.add("8-Permission");
         mData.add("9-SQLiteCope");
+        mData.add("10-下载apk安装包");
         adapter = new ListAdapter(mData);
         adapter.setOnItemClickListener(this);
     }
@@ -89,6 +90,9 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
                 break;
             case 9:
                 ARouter.getInstance().build("/activity/SqliteActivity").navigation();
+                break;
+            case 10:
+                ARouter.getInstance().build("/activity/UpdateApkActivity").navigation();
                 break;
             default:
                 break;

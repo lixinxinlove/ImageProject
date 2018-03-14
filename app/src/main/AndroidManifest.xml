@@ -43,7 +43,13 @@
         <activity android:name=".activity.TransitionsActivity" />
         <activity android:name=".activity.RoomActivity" />
         <activity android:name=".activity.PermissionActivity" />
-        <activity android:name=".activity.SqliteActivity"></activity>
+        <activity android:name=".activity.SqliteActivity" />
+
+        <service
+            android:name=".service.DownloadAppIntentService"
+            android:exported="false" />
+
+        <activity android:name=".activity.UpdateApkActivity"></activity>
     </application>
 
 </manifest>

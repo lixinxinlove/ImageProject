@@ -8,6 +8,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.facebook.stetho.Stetho;
 import com.lixinxin.imageproject.db.AppDataBase;
 import com.lixinxin.imageproject.db.dao.UserDao;
+import com.lixinxin.imageproject.network.DataApiForOkHttp;
 
 /**
  * Created by android on 2018/2/27.
@@ -21,10 +22,14 @@ public class App extends Application {
 
     public static UserDao userDao;
 
+    public static DataApiForOkHttp okHttp;
+
+
     @Override
     public void onCreate() {
         super.onCreate();
         mContext = this;
+        okHttp = new DataApiForOkHttp();
         //初始化数据库调试
         Stetho.initializeWithDefaults(this);
         initARouter();
