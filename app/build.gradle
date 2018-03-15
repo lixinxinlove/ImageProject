@@ -5,7 +5,7 @@ android {
     buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.lixinxin.imageproject"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -16,8 +16,8 @@ android {
                 arguments = [moduleName: project.getName()]
             }
         }
-
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -32,27 +32,28 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile project(':times-square')
-    //数据库调试
-    //glide
-    //glide 扩展
-    //rxjava
-    // adapter
-    //路由
-    //okHttp
-    //room
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    //数据库调试
     compile 'com.facebook.stetho:stetho:1.5.0'
+    //glide
     compile 'com.github.bumptech.glide:glide:4.6.1'
+    //glide 扩展
     compile 'jp.wasabeef:glide-transformations:3.1.0'
     compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
+    //rxjava
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'io.reactivex.rxjava2:rxjava:2.1.9'
+    // adapter
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    //路由
     compile 'com.alibaba:arouter-api:1.3.1'
+    //okHttp
     compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    //room
     compile 'android.arch.persistence.room:runtime:1.0.0'
+
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'

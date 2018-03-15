@@ -19,17 +19,21 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 import static com.lixinxin.imageproject.app.App.userDao;
+import static io.reactivex.Observable.create;
 
 @Route(path = "/activity/RoomActivity")
 public class RoomActivity extends AppCompatActivity {
 
     private TextView textView;
     private User user;
+
+    private final CompositeDisposable mDisposable = new CompositeDisposable();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,38 +55,40 @@ public class RoomActivity extends AppCompatActivity {
 
     public void find(View view) {
 
-        Observable.create(new ObservableOnSubscribe<User>() {
-            @Override
-            public void subscribe(@NonNull ObservableEmitter<User> emitter) throws Exception {
-                List<User> users = userDao.query();
-                if (users != null) {
-                    emitter.onNext(users.get(0));
-                } else {
-                    emitter.onNext(null);
-                }
-                emitter.onComplete();
-            }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<User>() {
+        mDisposable.add(Observable.create(new ObservableOnSubscribe<User>() {
                     @Override
-                    public void accept(User user) throws Exception {
-                        if (user != null) {
-                            textView.setText(user.toString() + "-----find");
+                    public void subscribe(@NonNull ObservableEmitter<User> emitter) throws Exception {
+                        List<User> users = userDao.query();
+                        if (users != null) {
+                            emitter.onNext(users.get(0));
                         } else {
-                            textView.setText("没有数据");
+                            emitter.onNext(null);
                         }
+                        emitter.onComplete();
                     }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        textView.setText("throwable");
-                    }
-                });
+                }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Consumer<User>() {
+                            @Override
+                            public void accept(User user) throws Exception {
+                                if (user != null) {
+                                    textView.setText(user.toString() + "-----find");
+                                } else {
+                                    textView.setText("没有数据");
+                                }
+                            }
+                        }, new Consumer<Throwable>() {
+                            @Override
+                            public void accept(Throwable throwable) throws Exception {
+                                textView.setText("throwable");
+                            }
+                        })
+        );
+
     }
 
     public void save(View view) {
 
-        Observable.create(new ObservableOnSubscribe<User>() {
+        create(new ObservableOnSubscribe<User>() {
             @Override
             public void subscribe(@NonNull ObservableEmitter<User> emitter) throws Exception {
                 long[] i = App.userDao.insertUser(user);
@@ -121,7 +127,7 @@ public class RoomActivity extends AppCompatActivity {
 
     public void update(View view) {
 
-        Observable.create(new ObservableOnSubscribe<User>() {
+        create(new ObservableOnSubscribe<User>() {
             @Override
             public void subscribe(@NonNull ObservableEmitter<User> emitter) throws Exception {
                 user.setAddress(user.getAddress() + "1607");
@@ -163,7 +169,7 @@ public class RoomActivity extends AppCompatActivity {
 
     public void delete(View view) {
 
-        Observable.create(new ObservableOnSubscribe<User>() {
+        create(new ObservableOnSubscribe<User>() {
             @Override
             public void subscribe(@NonNull ObservableEmitter<User> emitter) throws Exception {
                 int i = App.userDao.deleteUser(user);
@@ -200,7 +206,7 @@ public class RoomActivity extends AppCompatActivity {
     }
 
     public void count(View view) {
-        Observable.create(new ObservableOnSubscribe<Long>() {
+        create(new ObservableOnSubscribe<Long>() {
             @Override
             public void subscribe(@NonNull ObservableEmitter<Long> emitter) throws Exception {
                 long i = App.userDao.queryCount();
@@ -237,4 +243,9 @@ public class RoomActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mDisposable.clear(); //防止内存泄漏
+    }
 }

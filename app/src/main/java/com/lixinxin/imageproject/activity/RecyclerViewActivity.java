@@ -50,7 +50,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
         mData.add("6-转场动画");
         mData.add("7-ROOM");
         mData.add("8-Permission");
-        mData.add("9-SQLiteCope");
+        mData.add("9-SQLite读取数据库文件（拷贝数据库文件）");
         mData.add("10-下载apk安装包");
         mData.add("11-属性动画");
         adapter = new ListAdapter(mData);
