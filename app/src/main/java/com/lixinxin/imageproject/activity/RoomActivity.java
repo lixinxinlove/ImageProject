@@ -198,4 +198,43 @@ public class RoomActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    public void count(View view) {
+        Observable.create(new ObservableOnSubscribe<Long>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<Long> emitter) throws Exception {
+                long i = App.userDao.queryCount();
+                if (i > 0) {
+                    emitter.onNext(i);
+                } else {
+                    emitter.onError(new Throwable(""));
+                }
+                emitter.onComplete();
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Long>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(@NonNull Long l) {
+                        textView.setText("一共有" + l + "条数据");
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        textView.setText("报错");
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Toast.makeText(RoomActivity.this, "delete", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+
 }

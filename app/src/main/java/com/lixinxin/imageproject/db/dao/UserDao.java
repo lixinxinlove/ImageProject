@@ -39,5 +39,6 @@ public interface UserDao {
     @Query("SELECT * FROM user WHERE address LIKE :address")
     List<User> queryAddress(String address);
 
-
+    @Query("SELECT count(*) FROM user")
+    Long queryCount();
 }
