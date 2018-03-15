@@ -49,7 +49,8 @@
             android:name=".service.DownloadAppIntentService"
             android:exported="false" />
 
-        <activity android:name=".activity.UpdateApkActivity"></activity>
+        <activity android:name=".activity.UpdateApkActivity" />
+        <activity android:name=".activity.AnimatorSetActivity"></activity>
     </application>
 
 </manifest>
