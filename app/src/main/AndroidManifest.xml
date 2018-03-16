@@ -50,7 +50,8 @@
             android:exported="false" />
 
         <activity android:name=".activity.UpdateApkActivity" />
-        <activity android:name=".activity.AnimatorSetActivity"></activity>
+        <activity android:name=".activity.AnimatorSetActivity" />
+        <activity android:name=".activity.KeyboardViewActivity"></activity>
     </application>
 
 </manifest>
