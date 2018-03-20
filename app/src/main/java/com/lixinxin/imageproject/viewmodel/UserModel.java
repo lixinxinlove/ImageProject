@@ -1,5 +1,7 @@
 package com.lixinxin.imageproject.viewmodel;
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
 import com.lixinxin.imageproject.db.entity.User;
@@ -12,7 +14,13 @@ public class UserModel extends ViewModel {
 
     private User user;
 
-    public User getUser() {
+    private MutableLiveData<User> liveData;
+
+    public LiveData<User> getUser() {
+
+        if (liveData == null) {
+            liveData = new MutableLiveData<>();
+        }
         if (user == null) {
             user = new User();
             user.setAddress("三里屯");
@@ -20,7 +28,8 @@ public class UserModel extends ViewModel {
             user.setPassword("123456");
             user.setLike("吃");
         }
-        return user;
+        liveData.setValue(user);
+        return liveData;
     }
 
 }

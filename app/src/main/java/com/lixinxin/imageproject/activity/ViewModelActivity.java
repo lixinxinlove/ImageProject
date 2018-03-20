@@ -1,7 +1,9 @@
 package com.lixinxin.imageproject.activity;
 
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -17,26 +19,19 @@ public class ViewModelActivity extends AppCompatActivity {
 
     private TextView textView;
 
-    private User user;
-    private User user1;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_model);
         textView = (TextView) findViewById(R.id.tv_text);
-
-        user1 = new User();
-        user1.setAddress("三里屯");
-        user1.setUserId(2);
-        user1.setPassword("123456");
-        user1.setLike("吃");
-
         UserModel userModel = ViewModelProviders.of(this).get(UserModel.class);
-        user = userModel.getUser();
-
-        textView.setText(user.toString());
+        userModel.getUser().observe(this, new Observer<User>() {
+            @Override
+            public void onChanged(@Nullable User user) {
+                textView.setText(user.toString());
+                user.setName("哈哈哈");
+            }
+        });
 
         Log.e("Android", "onCreate");
     }
@@ -92,8 +87,8 @@ public class ViewModelActivity extends AppCompatActivity {
     }
 
     public void onChangeUI(View view) {
-        user.setName("哈哈哈哈哈哈");
-        textView.setText(user.toString());
+
+        textView.setText("");
     }
 
 }
