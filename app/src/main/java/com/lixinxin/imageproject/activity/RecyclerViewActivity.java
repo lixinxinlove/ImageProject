@@ -54,6 +54,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
         mData.add("10-下载apk安装包");
         mData.add("11-属性动画");
         mData.add("12-自定义键盘");
+        mData.add("13-ViewModel");
         adapter = new ListAdapter(mData);
         adapter.setOnItemClickListener(this);
     }
@@ -101,6 +102,9 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
                 break;
             case 12:
                 ARouter.getInstance().build("/activity/KeyboardViewActivity").navigation();
+                break;
+            case 13:
+                ARouter.getInstance().build("/activity/ViewModelActivity").navigation();
                 break;
             default:
                 break;

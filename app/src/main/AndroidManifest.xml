@@ -51,7 +51,8 @@
 
         <activity android:name=".activity.UpdateApkActivity" />
         <activity android:name=".activity.AnimatorSetActivity" />
-        <activity android:name=".activity.KeyboardViewActivity"></activity>
+        <activity android:name=".activity.KeyboardViewActivity" />
+        <activity android:name=".activity.ViewModelActivity"></activity>
     </application>
 
 </manifest>
