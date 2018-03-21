@@ -56,6 +56,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
         mData.add("12-自定义键盘");
         mData.add("13-ViewModel");
         mData.add("14-分享");
+        mData.add("15-Sensor");
         adapter = new ListAdapter(mData);
         adapter.setOnItemClickListener(this);
     }
@@ -109,6 +110,9 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
                 break;
             case 14:
                 ARouter.getInstance().build("/activity/ShareActivity").navigation();
+                break;
+            case 15:
+                ARouter.getInstance().build("/activity/SensorActivity").navigation();
                 break;
             default:
                 break;
