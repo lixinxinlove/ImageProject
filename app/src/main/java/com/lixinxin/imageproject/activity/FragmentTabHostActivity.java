@@ -9,23 +9,23 @@ import android.widget.TabHost;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.lixinxin.imageproject.R;
 import com.lixinxin.imageproject.fragment.CarFragment;
+import com.lixinxin.imageproject.fragment.ConterFragment;
 import com.lixinxin.imageproject.fragment.FindFragment;
 import com.lixinxin.imageproject.fragment.HomeFragment;
 import com.lixinxin.imageproject.fragment.MyFragment;
 import com.lixinxin.imageproject.utils.IconValues;
 import com.lixinxin.imageproject.view.TabView;
+
 @Route(path = "/activity/FragmentTabHostActivity")
 public class FragmentTabHostActivity extends AppCompatActivity {
 
     FragmentTabHost mTabHost;
-    //定义数组存放Fragment
-    private final Class fragmentArray[] = {MyFragment.class, HomeFragment.class, CarFragment.class, FindFragment.class};
+
+    private final Class fragmentArray[] = {MyFragment.class, HomeFragment.class, ConterFragment.class, CarFragment.class, FindFragment.class};
     private int mImageViewArray[] = IconValues.homeTabArr;
     private String mTextViewArray[] = IconValues.homeTabTextArr;
-    private String mTabIdArray[] = {"home", "lll", "eee", "my"};
+    private String mTabIdArray[] = {"home", "lll", "tab", "eee", "my"};
 
-//    List<Observer<Action>> listS = new ArrayList<>();
-//    Observer<Action> rxSbscription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,14 @@ public class FragmentTabHostActivity extends AppCompatActivity {
             bundle.putString("title", "lee");
             mTabHost.addTab(tabSpec, fragmentArray[i], bundle);
         }
+
+        mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+
+            }
+        });
+
     }
 
     /**
@@ -61,9 +69,15 @@ public class FragmentTabHostActivity extends AppCompatActivity {
      * @return
      */
     private View getTabItemView(int i) {
+
         TabView view = new TabView(this);
-        view.setIv(mImageViewArray[i]);
-        view.setTv(mTextViewArray[i]);
+        if (i == 2) {
+            view.setTv("");
+        } else {
+            view.setIv(mImageViewArray[i]);
+            view.setTv(mTextViewArray[i]);
+        }
+
         return view;
     }
 
