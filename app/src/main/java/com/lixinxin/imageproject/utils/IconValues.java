@@ -13,7 +13,8 @@ public class IconValues {
             R.drawable.tab_selector_a,
             R.drawable.tab_selector_b,
             R.drawable.tab_selector_c,
+            R.drawable.tab_selector_c,
             R.drawable.tab_selector_d,};
 
-    public static String[] homeTabTextArr = {"我的", "收藏", "世界", "支付"};
+    public static String[] homeTabTextArr = {"我的", "收藏","" ,"世界", "支付"};
 }
