@@ -57,6 +57,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
         mData.add("13-ViewModel");
         mData.add("14-分享");
         mData.add("15-Sensor");
+        mData.add("16-FragmentTabHost");
         adapter = new ListAdapter(mData);
         adapter.setOnItemClickListener(this);
     }
@@ -113,6 +114,9 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
                 break;
             case 15:
                 ARouter.getInstance().build("/activity/SensorActivity").navigation();
+                break;
+            case 16:
+                ARouter.getInstance().build("/activity/FragmentTabHostActivity").navigation();
                 break;
             default:
                 break;

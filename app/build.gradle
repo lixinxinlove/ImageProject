@@ -76,6 +76,7 @@ dependencies {
     compile 'android.arch.lifecycle:viewmodel:1.1.0'
     compile 'android.arch.lifecycle:livedata:1.1.0'
     compile 'android.arch.paging:runtime:1.0.0-alpha6'
+    compile 'com.android.support:support-v4:26.+'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
