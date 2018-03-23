@@ -1,4 +1,6 @@
 buildscript {
+
+
     repositories {
         jcenter()
         maven { url 'https://maven.google.com' }
@@ -18,4 +20,9 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    okhttp = '3.10.0'
+    glide = '4.6.1'
 }
