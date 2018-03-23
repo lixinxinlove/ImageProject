@@ -55,7 +55,7 @@
         <activity android:name=".activity.ViewModelActivity" />
         <activity android:name=".activity.ShareActivity" />
         <activity android:name=".activity.SensorActivity" />
-        <activity android:name=".activity.FragmentTabHostActivity"></activity>
+        <activity android:name=".activity.FragmentTabHostActivity"/>
     </application>
 
 </manifest>
