@@ -66,7 +66,9 @@ public class RoomActivity extends AppCompatActivity {
                         }
                         emitter.onComplete();
                     }
-                }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                })
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(new Consumer<User>() {
                             @Override
                             public void accept(User user) throws Exception {
