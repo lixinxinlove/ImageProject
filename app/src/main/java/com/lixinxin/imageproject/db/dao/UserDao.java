@@ -11,6 +11,10 @@ import com.lixinxin.imageproject.db.entity.User;
 
 import java.util.List;
 
+import io.reactivex.Flowable;
+import io.reactivex.Maybe;
+import io.reactivex.Single;
+
 /**
  * Created by android on 2018/3/9.
  */
@@ -41,4 +45,14 @@ public interface UserDao {
 
     @Query("SELECT count(*) FROM user")
     Long queryCount();
+
+    @Query("SELECT * FROM user")
+    Maybe<List<User>> queryUserByMaybe();
+
+    @Query("SELECT * FROM user")
+    Single<List<User>> queryUserBySingle();
+
+    @Query("SELECT * FROM user")
+    Flowable<List<User>> queryUserByFlowable();
+
 }

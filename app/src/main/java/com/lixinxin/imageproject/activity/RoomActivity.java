@@ -11,12 +11,17 @@ import com.lixinxin.imageproject.R;
 import com.lixinxin.imageproject.app.App;
 import com.lixinxin.imageproject.db.entity.User;
 
+import org.reactivestreams.Subscription;
+
 import java.util.List;
 
+import io.reactivex.FlowableSubscriber;
+import io.reactivex.MaybeObserver;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
+import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
@@ -242,6 +247,87 @@ public class RoomActivity extends AppCompatActivity {
                         Toast.makeText(RoomActivity.this, "delete", Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+
+    public void findMaybe(View view) {
+        userDao.queryUserByMaybe()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new MaybeObserver<List<User>>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(@NonNull List<User> users) {
+                        textView.setText(users.get(0).toString());
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        textView.append("onError");
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        textView.append("onComplete");
+                    }
+                });
+    }
+
+    public void findSingle(View view) {
+        userDao.queryUserBySingle()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<List<User>>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(@NonNull List<User> users) {
+                        textView.setText(users.get(0).toString());
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        textView.append("onError");
+                    }
+                });
+
+    }
+
+    public void findFlowable(View view) {
+
+        //TODO Flowable 有bug  http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2017/0726/8268.html
+        userDao.queryUserByFlowable()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new FlowableSubscriber<List<User>>() {
+                    @Override
+                    public void onSubscribe(@NonNull Subscription s) {
+
+                    }
+
+                    @Override
+                    public void onNext(List<User> users) {
+                        textView.setText(users.get(0).toString());
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                        textView.append("onError");
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        textView.append("onComplete");
+                    }
+                });
+
     }
 
 

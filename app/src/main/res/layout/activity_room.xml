@@ -39,6 +39,21 @@
         android:layout_height="wrap_content"
         android:onClick="count"
         android:text="count" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="findMaybe"
+        android:text="Maybe" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="findSingle"
+        android:text="Single" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="findFlowable"
+        android:text="Flowable" />
 
 
 </LinearLayout>
