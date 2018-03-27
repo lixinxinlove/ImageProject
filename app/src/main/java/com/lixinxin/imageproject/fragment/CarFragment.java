@@ -15,6 +15,13 @@ import com.lixinxin.imageproject.R;
  */
 public class CarFragment extends Fragment {
 
+    public static CarFragment newInstance() {
+        CarFragment fragment = new CarFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

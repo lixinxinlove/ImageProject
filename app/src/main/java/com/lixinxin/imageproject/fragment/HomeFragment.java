@@ -15,6 +15,14 @@ import com.lixinxin.imageproject.R;
 public class HomeFragment extends Fragment {
 
 
+    public static HomeFragment newInstance() {
+        HomeFragment fragment = new HomeFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
     public HomeFragment() {
         // Required empty public constructor
     }

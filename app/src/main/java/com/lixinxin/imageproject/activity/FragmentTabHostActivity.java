@@ -1,37 +1,66 @@
 package com.lixinxin.imageproject.activity;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TabHost;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.lixinxin.imageproject.R;
+import com.lixinxin.imageproject.adapter.MyFragmentPageAdapter;
 import com.lixinxin.imageproject.fragment.CarFragment;
-import com.lixinxin.imageproject.fragment.ConterFragment;
 import com.lixinxin.imageproject.fragment.FindFragment;
 import com.lixinxin.imageproject.fragment.HomeFragment;
 import com.lixinxin.imageproject.fragment.MyFragment;
 import com.lixinxin.imageproject.utils.IconValues;
 import com.lixinxin.imageproject.view.TabView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Route(path = "/activity/FragmentTabHostActivity")
 public class FragmentTabHostActivity extends AppCompatActivity {
 
-    FragmentTabHost mTabHost;
+    private FragmentTabHost mTabHost;
+    private ViewPager mViewPager;
 
-    private final Class fragmentArray[] = {MyFragment.class, HomeFragment.class, ConterFragment.class, CarFragment.class, FindFragment.class};
+
+    private MyFragmentPageAdapter pageAdapter;
+
+    private List<Fragment> fragmentList;
+
+    private final Class fragmentArray[] = {MyFragment.class, HomeFragment.class, CarFragment.class, FindFragment.class};
     private int mImageViewArray[] = IconValues.homeTabArr;
     private String mTextViewArray[] = IconValues.homeTabTextArr;
-    private String mTabIdArray[] = {"home", "lll", "tab", "eee", "my"};
+    private String mTabIdArray[] = {"home", "lll", "eee", "my"};
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_tab_host);
+
+        initViewPager();
         initFragment();
+    }
+
+    private void initViewPager() {
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        fragmentList = new ArrayList<>();
+        fragmentList.add(MyFragment.newInstance("", ""));
+        fragmentList.add(HomeFragment.newInstance());
+        fragmentList.add(CarFragment.newInstance());
+        fragmentList.add(FindFragment.newInstance());
+
+        pageAdapter = new MyFragmentPageAdapter(getSupportFragmentManager(), fragmentList);
+        mViewPager.setAdapter(pageAdapter);
+
+
+        mViewPager.setCurrentItem(2,false);
+
     }
 
 
