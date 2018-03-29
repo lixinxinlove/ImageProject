@@ -70,7 +70,7 @@ public class FragmentTabHostActivity extends AppCompatActivity {
 
     private void initFragment() {
         mTabHost = (FragmentTabHost) findViewById(R.id.fragment_tab_host);
-        mTabHost.setup(this, getSupportFragmentManager(), R.id.fl_content);//设置替换哪个布局
+        mTabHost.setup(this, getSupportFragmentManager(), R.id.pager);//设置替换哪个布局
         mTabHost.getTabWidget().setDividerDrawable(R.color.tr);
         int fragmentCount = fragmentArray.length;
 
