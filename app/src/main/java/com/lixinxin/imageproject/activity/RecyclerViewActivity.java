@@ -59,6 +59,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
         mData.add("15-Sensor");
         mData.add("16-FragmentTabHost");
         mData.add("17-播放声音");
+        mData.add("18-WebViewJs");
         adapter = new ListAdapter(mData);
         adapter.setOnItemClickListener(this);
     }
@@ -121,6 +122,9 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
                 break;
             case 17:
                 ARouter.getInstance().build("/activity/SoundPoolActivity").navigation();
+                break;
+            case 18:
+                ARouter.getInstance().build("/activity/WebViewJsActivity").navigation();
                 break;
             default:
                 break;

@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "E:\\work\\ImageProject\\times-square\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_month.xml.flat",
+        "source": "E:\\work\\ImageProject\\times-square\\build\\intermediates\\bundles\\debug\\res\\layout\\month.xml"
+    },
+    {
+        "merged": "E:\\work\\ImageProject\\times-square\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_week.xml.flat",
+        "source": "E:\\work\\ImageProject\\times-square\\build\\intermediates\\bundles\\debug\\res\\layout\\week.xml"
+    },
+    {
+        "merged": "E:\\work\\ImageProject\\times-square\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_calendar_bg_selector.xml.flat",
+        "source": "E:\\work\\ImageProject\\times-square\\build\\intermediates\\bundles\\debug\\res\\drawable\\calendar_bg_selector.xml"
+    },
+    {
+        "merged": "E:\\work\\ImageProject\\times-square\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_calendar_text_selector.xml.flat",
+        "source": "E:\\work\\ImageProject\\times-square\\build\\intermediates\\bundles\\debug\\res\\color\\calendar_text_selector.xml"
+    }
+]

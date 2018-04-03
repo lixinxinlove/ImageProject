@@ -56,7 +56,8 @@
         <activity android:name=".activity.ShareActivity" />
         <activity android:name=".activity.SensorActivity" />
         <activity android:name=".activity.FragmentTabHostActivity" />
-        <activity android:name=".activity.SoundPoolActivity"></activity>
+        <activity android:name=".activity.SoundPoolActivity" />
+        <activity android:name=".activity.WebViewJsActivity"></activity>
     </application>
 
 </manifest>
