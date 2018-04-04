@@ -61,6 +61,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
         mData.add("17-播放声音");
         mData.add("18-WebViewJs");
         mData.add("19-scheme");
+        mData.add("20-AnimActivity");
         adapter = new ListAdapter(mData);
         adapter.setOnItemClickListener(this);
     }
@@ -129,6 +130,9 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
                 break;
             case 19:
                 ARouter.getInstance().build("/activity/WebViewActivity").navigation();
+                break;
+            case 20:
+                ARouter.getInstance().build("/activity/AnimActivity").navigation();
                 break;
             default:
                 break;

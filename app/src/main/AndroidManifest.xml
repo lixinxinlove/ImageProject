@@ -41,10 +41,8 @@
                     android:port="1024"
                     android:scheme="myscheme" />
             </intent-filter>
-
         </activity>
         <activity android:name=".activity.RecyclerViewActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -75,7 +73,8 @@
         <activity android:name=".activity.FragmentTabHostActivity" />
         <activity android:name=".activity.SoundPoolActivity" />
         <activity android:name=".activity.WebViewJsActivity" />
-        <activity android:name=".activity.WebViewActivity"></activity>
+        <activity android:name=".activity.WebViewActivity" />
+        <activity android:name=".activity.AnimActivity"></activity>
     </application>
 
 </manifest>
