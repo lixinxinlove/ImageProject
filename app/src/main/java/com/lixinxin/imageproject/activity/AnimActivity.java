@@ -25,28 +25,24 @@ public class AnimActivity extends AppCompatActivity {
         imageView1 = findViewById(R.id.iv1);
         imageView2 = findViewById(R.id.iv2);
 
-        AnimatorSet set1 = createTranslationXY(imageView1, imageView1.getX(),
-                imageView1.getX()+40, imageView1.getY() , imageView1.getY()-40, 0);
-        // set1.addListener(new AnimatorListenerAdapter() {});
+        AnimatorSet set1 = createTranslationXY(imageView1, imageView1.getX(), imageView1.getX() + 60, imageView1.getY(), imageView1.getY() - 60, 0);
         set1.start();
-
-        AnimatorSet set2 = createTranslationXY(imageView2, imageView2.getX() , imageView2.getX()+40,
-                imageView2.getY() , imageView2.getY()-40, 1050);
-
+        AnimatorSet set2 = createTranslationXY(imageView2, imageView2.getX(), imageView2.getX() + 60, imageView2.getY(), imageView2.getY() - 60, 1050);
         set2.start();
 
     }
 
 
-    private AnimatorSet createTranslationXY(View view, float startX, float endX, float startY, float endY, long currentTime) {
+    private AnimatorSet createTranslationXY(final View view, float startX, float endX, float startY, float endY, long currentTime) {
         AnimatorSet animatorSet = new AnimatorSet();// 组合动画
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(view, "translationX", startX, endX);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(view, "translationY", startY, endY);
+       // ObjectAnimator scaleY = ObjectAnimator.ofFloat(view, "translationY", startY, endY);
+        ObjectAnimator alpha = ObjectAnimator.ofFloat(view, "alpha", 0, 1f);
         animatorSet.setDuration(1000);
         animatorSet.setStartDelay(currentTime);
-        animatorSet.play(scaleY);
+        animatorSet.play(alpha);
+     //   animatorSet.play(scaleY);
         animatorSet.play(scaleX);// 两个动画同时开始
-
         return animatorSet;
     }
 

@@ -6,6 +6,7 @@
     tools:context=".activity.AnimActivity">
 
     <ImageView
+        android:alpha="0"
         android:id="@+id/iv1"
         android:layout_width="211dp"
         android:layout_height="375dp"
@@ -14,10 +15,11 @@
         android:src="@mipmap/guide_1_1" />
 
     <ImageView
+        android:alpha="0"
         android:id="@+id/iv2"
         android:layout_width="211dp"
         android:layout_height="375dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="60dp"
         android:layout_marginTop="20dp"
         android:src="@mipmap/guide_1_2" />
 
