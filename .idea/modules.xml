@@ -5,8 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/ImageProject.iml" filepath="$PROJECT_DIR$/.idea/ImageProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/ImageProject.iml" filepath="$PROJECT_DIR$/ImageProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/times-square/times-square.iml" filepath="$PROJECT_DIR$/times-square/times-square.iml" />
       <module fileurl="file://$PROJECT_DIR$/times-square/times-square.iml" filepath="$PROJECT_DIR$/times-square/times-square.iml" />
     </modules>
   </component>

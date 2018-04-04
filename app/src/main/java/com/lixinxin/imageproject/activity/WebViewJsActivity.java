@@ -28,7 +28,7 @@ public class WebViewJsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view_js);
 
-        myWebView = (WebView) findViewById(R.id.myWebView);
+        myWebView = findViewById(R.id.myWebView);
         myWebView.addJavascriptInterface(new WebAppInterface(this), "android");
         myWebView.setWebChromeClient(new WebChromeClient() {
             @Override
@@ -40,7 +40,7 @@ public class WebViewJsActivity extends AppCompatActivity {
         settings.setJavaScriptEnabled(true);
         myWebView.loadUrl("file:///android_asset/new_file.html");
 
-        button = (Button) findViewById(R.id.button);
+        button =  findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
