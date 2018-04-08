@@ -41,10 +41,10 @@ public class TimePickerDialogActivity extends AppCompatActivity implements OnDat
                 .setMinMillseconds(System.currentTimeMillis())
                 .setMaxMillseconds(System.currentTimeMillis() + tenYears)
                 .setCurrentMillseconds(System.currentTimeMillis())
-                .setThemeColor(getResources().getColor(R.color.timepicker_dialog_bg))
+                .setThemeColor(getResources().getColor(R.color.timepicker_toolbar_bg))
                 .setType(Type.ALL)
                 .setWheelItemTextNormalColor(getResources().getColor(R.color.timetimepicker_default_text_color))
-                .setWheelItemTextSelectorColor(getResources().getColor(R.color.timepicker_toolbar_bg))
+                .setWheelItemTextSelectorColor(getResources().getColor(R.color.timepicker_dialog_bg))
                 .setWheelItemTextSize(12)
                 .build();
     }
