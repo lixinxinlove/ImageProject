@@ -62,6 +62,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
         mData.add("18-WebViewJs");
         mData.add("19-scheme");
         mData.add("20-AnimActivity");
+        mData.add("21-TimePickerDialogActivity");
         adapter = new ListAdapter(mData);
         adapter.setOnItemClickListener(this);
     }
@@ -133,6 +134,9 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
                 break;
             case 20:
                 ARouter.getInstance().build("/activity/AnimActivity").navigation();
+                break;
+            case 21:
+                ARouter.getInstance().build("/activity/TimePickerDialogActivity").navigation();
                 break;
             default:
                 break;

@@ -74,7 +74,8 @@
         <activity android:name=".activity.SoundPoolActivity" />
         <activity android:name=".activity.WebViewJsActivity" />
         <activity android:name=".activity.WebViewActivity" />
-        <activity android:name=".activity.AnimActivity"></activity>
+        <activity android:name=".activity.AnimActivity" />
+        <activity android:name=".activity.TimePickerDialogActivity"></activity>
     </application>
 
 </manifest>

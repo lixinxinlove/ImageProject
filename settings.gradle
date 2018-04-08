@@ -1,1 +1,1 @@
-include ':app', ':times-square'
+include ':app', ':times-square', ':timepickerdialog', ':timepickerdialog'
