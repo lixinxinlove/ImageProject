@@ -76,7 +76,8 @@
         <activity android:name=".activity.WebViewActivity" />
         <activity android:name=".activity.AnimActivity" />
         <activity android:name=".activity.TimePickerDialogActivity" />
-        <activity android:name=".activity.ChoseHeadActivity"></activity>
+        <activity android:name=".activity.ChoseHeadActivity" />
+        <activity android:name=".activity.TimerActivity"></activity>
     </application>
 
 </manifest>

@@ -64,6 +64,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
         mData.add("20-AnimActivity");
         mData.add("21-TimePickerDialogActivity");
         mData.add("22-选择头像");
+        mData.add("23-定时任务");
         adapter = new ListAdapter(mData);
         adapter.setOnItemClickListener(this);
     }
@@ -141,6 +142,9 @@ public class RecyclerViewActivity extends AppCompatActivity implements BaseQuick
                 break;
             case 22:
                 ARouter.getInstance().build("/activity/ChoseHeadActivity").navigation();
+                break;
+            case 23:
+                ARouter.getInstance().build("/activity/TimerActivity").navigation();
                 break;
             default:
                 break;

@@ -41,9 +41,9 @@ public class ChoseHeadActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void initView() {
-        mHeader_iv = (ImageView) findViewById(R.id.mHeader_iv);
-        Button mGoCamera_btn = (Button) findViewById(R.id.mGoCamera_btn);
-        Button mGoAlbm_btn = (Button) findViewById(R.id.mGoAlbm_btn);
+        mHeader_iv =  findViewById(R.id.mHeader_iv);
+        Button mGoCamera_btn = findViewById(R.id.mGoCamera_btn);
+        Button mGoAlbm_btn =  findViewById(R.id.mGoAlbm_btn);
         mGoCamera_btn.setOnClickListener(this);
         mGoAlbm_btn.setOnClickListener(this);
     }
