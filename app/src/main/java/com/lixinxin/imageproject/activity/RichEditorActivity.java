@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.lixinxin.imageproject.R;
@@ -12,12 +13,14 @@ import jp.wasabeef.richeditor.RichEditor;
 
 @Route(path = "/activity/RichEditorActivity")
 public class RichEditorActivity extends AppCompatActivity {
-    RichEditor mEditor;
+    private RichEditor mEditor;
+    private TextView mPreview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rich_editor);
+        mPreview = findViewById(R.id.preview);
         mEditor = findViewById(R.id.editor);
         //初始化编辑高度
         mEditor.setEditorHeight(200);
@@ -38,6 +41,13 @@ public class RichEditorActivity extends AppCompatActivity {
         //设置编辑器是否可用
         mEditor.setInputEnabled(true);
         init();
+
+        mEditor.setOnTextChangeListener(new RichEditor.OnTextChangeListener() {
+            @Override
+            public void onTextChange(String text) {
+                mPreview.setText(text);
+            }
+        });
     }
 
 
