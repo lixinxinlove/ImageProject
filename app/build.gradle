@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.lixinxin.imageproject"
         minSdkVersion 21
@@ -28,11 +28,11 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile project(':times-square')
+    implementation project(':times-square')
     //数据库调试
     //glide
     //glide 扩展
@@ -64,7 +64,7 @@ dependencies {
     implementation 'android.arch.lifecycle:livedata:1.1.1'
     implementation 'android.arch.paging:runtime:1.0.0-alpha6'
     implementation 'android.arch.persistence.room:rxjava2:1.0.0'
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
     annotationProcessor 'android.arch.persistence.room:compiler:1.0.0'
